@@ -1,0 +1,36 @@
+---
+output: 
+  github_document:
+    html_preview: false
+---
+
+<!-- README.Rmd generates README.md. -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  # collapse = TRUE,
+  fig.align = "center",
+  comment = "#>",
+  fig.path = "man/figures/"
+)
+```
+
+## Installation
+
+```{r, eval = FALSE}
+# install.packages("remotes")
+remotes::install_github("knapply/hongkongio")
+```
+
+## Data
+
+```{r}
+library(dplyr)
+
+honkongio::hkio_users_df %>% # single data set
+  glimpse()
+
+honkongio::hkio_all_tweets() %>% # combine the 9 `data.table`s of tweets
+  glimpse()
+```
+
