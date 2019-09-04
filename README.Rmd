@@ -24,13 +24,14 @@ remotes::install_github("knapply/hongkongio")
 
 ## Data
 
-```{r}
+```{r, message=FALSE}
+library(hongkongio)
 library(dplyr)
 
-honkongio::hkio_users_df %>% # single data set
+hkio_users_df %>% # single data set
   glimpse()
 
-honkongio::hkio_all_tweets() %>% # combine the 9 `data.table`s of tweets
+hkio_all_tweets() %>% # combine the 9 `data.table`s of tweets
   glimpse()
 ```
 
