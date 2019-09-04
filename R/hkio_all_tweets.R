@@ -1,4 +1,4 @@
-#' Combine the 9 separate `hkio_tweets_df*` `data.tables` into 1.
+#' @rdname  hkio
 #' 
 #' @return `data.table`
 #' 
@@ -11,9 +11,17 @@
 #' 
 #' @importFrom data.table rbindlist
 hkio_all_tweets <- function() {
+  target_paths <- system.file(
+    c("extdata/hkio_tweets_df1.rds", "extdata/hkio_tweets_df2.rds",
+      "extdata/hkio_tweets_df3.rds", "extdata/hkio_tweets_df4.rds",
+      "extdata/hkio_tweets_df5.rds", "extdata/hkio_tweets_df6.rds",
+      "extdata/hkio_tweets_df7.rds", "extdata/hkio_tweets_df8.rds",
+      "extdata/hkio_tweets_df9.rds"),
+    package = "hongkongio",
+    mustWork = TRUE
+  )
+  
   rbindlist(
-    list(hkio_tweets_df1, hkio_tweets_df2, hkio_tweets_df3, hkio_tweets_df4,
-         hkio_tweets_df5, hkio_tweets_df6, hkio_tweets_df7, hkio_tweets_df8,
-         hkio_tweets_df9)
+    lapply(target_paths, readRDS)
   )
 }

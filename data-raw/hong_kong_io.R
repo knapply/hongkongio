@@ -133,13 +133,27 @@ hkio_tweets_df7 <- hkio_tweets_df[row_seqs[[7L]]]
 hkio_tweets_df8 <- hkio_tweets_df[row_seqs[[8L]]]
 hkio_tweets_df9 <- hkio_tweets_df[row_seqs[[9L]]]
 
-usethis::use_data(hkio_users_df, overwrite = TRUE)
-usethis::use_data(hkio_tweets_df1, overwrite = TRUE)
-usethis::use_data(hkio_tweets_df2, overwrite = TRUE)
-usethis::use_data(hkio_tweets_df3, overwrite = TRUE)
-usethis::use_data(hkio_tweets_df4, overwrite = TRUE)
-usethis::use_data(hkio_tweets_df5, overwrite = TRUE)
-usethis::use_data(hkio_tweets_df6, overwrite = TRUE)
-usethis::use_data(hkio_tweets_df7, overwrite = TRUE)
-usethis::use_data(hkio_tweets_df8, overwrite = TRUE)
-usethis::use_data(hkio_tweets_df9, overwrite = TRUE)
+
+all_tweets <- list(hkio_tweets_df1, hkio_tweets_df2, hkio_tweets_df3, 
+                   hkio_tweets_df4, hkio_tweets_df5, hkio_tweets_df6, 
+                   hkio_tweets_df7, hkio_tweets_df8, hkio_tweets_df9) %>%
+  purrr::set_names("hkio_tweets_df1", "hkio_tweets_df2", "hkio_tweets_df3", 
+                   "hkio_tweets_df4", "hkio_tweets_df5", "hkio_tweets_df6", 
+                   "hkio_tweets_df7", "hkio_tweets_df8", "hkio_tweets_df9")
+
+purrr::iwalk(all_tweets, ~ {
+  readr::write_rds(.x, path = glue::glue("inst/extdata/{.y}.rds"),
+                   compress = "bzip2")
+})
+
+
+# usethis::use_data(hkio_users_df, overwrite = TRUE)
+# usethis::use_data(hkio_tweets_df1, overwrite = TRUE)
+# usethis::use_data(hkio_tweets_df2, overwrite = TRUE)
+# usethis::use_data(hkio_tweets_df3, overwrite = TRUE)
+# usethis::use_data(hkio_tweets_df4, overwrite = TRUE)
+# usethis::use_data(hkio_tweets_df5, overwrite = TRUE)
+# usethis::use_data(hkio_tweets_df6, overwrite = TRUE)
+# usethis::use_data(hkio_tweets_df7, overwrite = TRUE)
+# usethis::use_data(hkio_tweets_df8, overwrite = TRUE)
+# usethis::use_data(hkio_tweets_df9, overwrite = TRUE)
