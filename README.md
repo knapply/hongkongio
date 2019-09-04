@@ -11,9 +11,8 @@ remotes::install_github("knapply/hongkongio")
 ## Data
 
 ``` r
-library(dplyr)
-
 library(hongkongio)
+library(dplyr)
 
 hkio_users_df %>% # single data set
   glimpse()
