@@ -1,6 +1,13 @@
 
 <!-- README.Rmd generates README.md. -->
 
+# `{hongkongio}`
+
+This package contain the data of an information operation targeting the
+situation in Hong Kong. The data are described here: [Information
+operations directed at Hong
+Kong](https://blog.twitter.com/en_us/topics/company/2019/information_operations_directed_at_Hong_Kong.html).
+
 ## Installation
 
 ``` r
